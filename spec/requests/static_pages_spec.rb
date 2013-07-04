@@ -10,10 +10,17 @@ end
 it "should have the right title" do
 visit '/static_pages/home'
 page.should have_selector('title',
-:text => "Ruby on Rails Tutorial Sample App | Home")
+:text => "Ruby on Rails Tutorial Sample App")
 end
 
+it "should not have a custom page title" do
+visit '/static_pages/home'
+page.should_not have_selector('title', :text => '| Home')
 end
+end
+
+
+
 
 
 
@@ -26,7 +33,11 @@ end
 it "should have the right title" do
 visit '/static_pages/help'
 page.should have_selector('title',
-:text => "Ruby on Rails Tutorial Sample App | Help")
+:text => "Ruby on Rails Tutorial Sample App")
+end
+it "should not have a custom page title" do
+visit '/static_pages/help'
+page.should_not have_selector('title', :text => '| Help')
 end
 end
 
@@ -39,7 +50,12 @@ end
 it "should have the right title" do
 visit '/static_pages/about'
 page.should have_selector('title',
-:text => "Ruby on Rails Tutorial Sample App | About Us")
+:text => "Ruby on Rails Tutorial Sample App")
+end
+
+it "should not have a custom page title" do
+visit '/static_pages/home'
+page.should_not have_selector('title', :text => '| About Us')
 end
 end
 
